@@ -1,21 +1,17 @@
 #!/usr/bin/env bash
 
-os=$(uname)
+DOTFILES=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
 
+os=$(uname)
 case "$os" in
   "Linux")
-    sudo apt install fzf
+    bash ubuntu/ubuntu-dependencies.sh
     ;;
   "Darwin")
-    brew install make
-    brew install cmake
-    brew install fzf
-    brew install ripgrep
-    brew install zf
-    brew install fd
+    chmod +x $DOTFILES/mac/mac-dependencies.sh
+    bash $DOTFILES/mac/mac-dependencies.sh 
     ;;
   *)
     echo "Not yet supported OS"
     ;;
 esac
-
