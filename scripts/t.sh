@@ -9,6 +9,7 @@ if [ -z "$TMUX" ]; then
     --info=inline \
     --border-label=' Select folder ' \
     --prompt='  ' \
+    --color='16,bg+:-1,gutter:-1,prompt:5,pointer:6,marker:6,border:4,label:4,header:italic' \
     --header=' You can search from the list of zoxide result' )
 
   # if empty exit
@@ -40,6 +41,7 @@ else
     --prompt '🔭 ' \
     --no-sort \
     --min-height=40 \
+    --color='16,bg+:-1,gutter:-1,prompt:5,pointer:6,marker:6,border:4,label:4,header:italic' \
     --height=40%)
 
   # if no result exit

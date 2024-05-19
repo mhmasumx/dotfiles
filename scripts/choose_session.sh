@@ -4,8 +4,8 @@ tmux list-sessions -F '#{session_last_attached} #{session_name}' | \
   sort --numeric-sort --reverse | \
   cut -d' ' -f2 | \
   gum filter \
-    --indicator="→" \
-    --prompt=" " \
+    --indicator=" →" \
+    --prompt="  " \
     --height="15" \
     --placeholder="Session name..."
 

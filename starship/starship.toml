@@ -1,11 +1,14 @@
 # don't print a new line at the start of the prompt
 add_newline = false
 
-format = "$directory$git_branch$git_status$fill${custom.git_email}$nodejs$python$java\n$character"
+# format = "$directory$git_branch$git_status${custom.git_host}$fill${custom.git_email}$nodejs$python$java\n$character"
+format = "$directory$fill${custom.git_email}$nodejs$python$java\n$character"
 right_format = "$status$cmd_duration"
 
 [fill]
+style = "bright-blue"
 symbol = " "
+#format = "[$symbol]($style)"
 
 [status]
 disabled = false
@@ -26,6 +29,8 @@ format = "[\ue5ff $path ]($style)([$read_only]($read_only_style))"
 "Downloads" = " "
 "Music" = " "
 "Pictures" = " "
+"~/Sites" = "@Sites"
+"~/Desktop" = "@Desktop"
 
 [nodejs]
 symbol = " "
@@ -56,36 +61,36 @@ format = '([$all_status]($style))'
 conflicted = "([⚠️ ${count}](bold red) )"
 ahead = "([⟫${count}])"
 behind = "([⟪${count}])"
-stashed = "([↪ ${count}](bold red)) "
-modified = "([ ${count}](bold yellow) )"
-staged = "([ ${count}](bold green) )"
-renamed = "([⇆ ${count}](vold blue) )"
-deleted = "([ ${count}](bold red) )"
-untracked ="([ ${count}](dimmed red) )"
+stashed = "([↪ ${count}](red)) "
+modified = "([ ${count}](yellow) )"
+staged = "([ ${count}](green) )"
+renamed = "([⇆ ${count}](blue) )"
+deleted = "([ ${count}](red) )"
+untracked ="([ ${count}](dimmed red) )"
 [custom.git_email]
 symbol = " "
-style = "#e35938"
+style = "#E0AF68"
 command = "git config user.email"
 when = "git rev-parse --git-dir 2> /dev/null"
 format = "[ $symbol[$output](italic $style)]($style)"
 
-# [custom.git_host]
-# when = 'git rev-parse --is-inside-work-tree 2> /dev/null'
-# command = """
-# GIT_REMOTE=$(command git ls-remote --get-url 2> /dev/null)
-# read -ra GIT_HOST <<< "$GIT_REMOTE"
-#
-# if [[ "$GIT_REMOTE" =~ "github" ]]; then
-#     GIT_REMOTE_SYMBOL=" "
-# elif [[ "$GIT_REMOTE" =~ "gitlab" ]]; then
-#     GIT_REMOTE_SYMBOL=" "
-# elif [[ "$GIT_REMOTE" =~ "bitbucket|stash" ]]; then
-#     GIT_REMOTE_SYMBOL="\\e[38;5;26m\uf5a7\\e[0m"
-# elif [[ "$GIT_REMOTE" =~ "git" ]]; then
-#     GIT_REMOTE_SYMBOL=" "
-# else
-#     GIT_REMOTE_SYMBOL=""
-# fi
-# echo "$GIT_REMOTE_SYMBOL${GIT_HOST[2]}"
-# """
-# format = "([at](italic) $output )"
+[custom.git_host]
+when = 'git rev-parse --is-inside-work-tree 2> /dev/null'
+command = """
+GIT_REMOTE=$(command git ls-remote --get-url 2> /dev/null)
+read -ra GIT_HOST <<< "$GIT_REMOTE"
+
+if [[ "$GIT_REMOTE" =~ "github" ]]; then
+    GIT_REMOTE_SYMBOL=" "
+elif [[ "$GIT_REMOTE" =~ "gitlab" ]]; then
+    GIT_REMOTE_SYMBOL=" "
+elif [[ "$GIT_REMOTE" =~ "bitbucket|stash" ]]; then
+    GIT_REMOTE_SYMBOL="\\e[38;5;26m\uf5a7\\e[0m"
+elif [[ "$GIT_REMOTE" =~ "git" ]]; then
+    GIT_REMOTE_SYMBOL=" "
+else
+    GIT_REMOTE_SYMBOL=""
+fi
+echo "$GIT_REMOTE_SYMBOL${GIT_HOST[2]}"
+"""
+format = "([at](italic) $output )"

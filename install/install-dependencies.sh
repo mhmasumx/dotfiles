@@ -5,7 +5,8 @@ DOTFILES=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
 os=$(uname)
 case "$os" in
   "Linux")
-    bash ubuntu/ubuntu-dependencies.sh
+    chmod $DOTFILES/ubuntu/ubuntu-dependencies.sh
+    bash $DOTFILES/ubuntu-dependencies.sh
     ;;
   "Darwin")
     chmod +x $DOTFILES/mac/mac-dependencies.sh
