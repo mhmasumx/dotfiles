@@ -1,0 +1,32 @@
+# vim: set syntax=zsh
+alias ls='lsd'
+alias l='lsd -l'
+alias la='lsd -la'
+alias ll='lsd -l'
+
+alias cat='bat'
+
+alias g='git'
+alias o='open .'
+alias v='nvim'
+alias y='yarn'
+
+function take () { mkdir -p $1 && cd $1 }
+
+# Git
+alias g='git'
+alias gl='git pull'
+alias gp='git push'
+alias gm='git merge'
+alias gco='git checkout'
+alias gcm='git checkout master'
+alias gcd='git checkout develop'
+
+# cd
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+
+alias zshreload="source ~/.zshrc"
+alias tn="tmux new -s $(pwd | sed 's/.*\///g')"

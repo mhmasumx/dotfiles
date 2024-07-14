@@ -1,5 +1,64 @@
+# Tap
+tap 'arl/arl'
+
+brew 'curl'
+brew 'wget'
+
+# Better ls
+brew 'lsd'
+
+# Install more recent versions of some macOS tools
+brew 'grep'
+brew 'less'
+brew 'openssh'
+
+# ZSH related stuff
+brew 'zsh'
+brew 'zsh-completions'
+
+# Install other useful binaries.
+brew 'make'
+brew 'cmake'
+brew 'tmux'
+brew 'tpm'
+brew 'starship'
+brew 'git'
+brew 'gitmux'
+brew 'lazygit'
+brew 'stow'
+brew 'tree'
+brew 'fzf'
+brew 'bat'
+brew 'fd'
+brew 'lf'
+brew 'ripgrep'
+brew 'tldr'
+brew 'ffmpeg'
+brew 'nmap'
+brew 'shellcheck'
+brew 'shfmt'
+brew 'zoxide'
+brew 'neovim'
+brew 'fnm'
+brew 'tpm'
+
+# zsh plugins
+brew 'zsh-syntax-highlighting'
+brew 'zsh-autosuggestions'
+brew 'zsh-autocomplete'
+
 # GUI Apps
-tap 'homebrew/cask'
 cask_args appdir: '/Applications'
 
-cask google-chrome
+cask 'google-chrome'
+cask 'arc'
+cask 'kitty'
+
+cask 'visual-studio-code'
+cask 'keyboardcleantool'
+
+# Fonts
+tap 'homebrew/cask-fonts'
+cask 'font-monaspace'
+cask 'font-noto-color-emoji'
+cask 'font-symbols-only-nerd-font'

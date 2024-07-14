@@ -7,11 +7,11 @@ sudo -v || exit 1
 DOTFILES=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
 
 # Check if Zsh is installed
-if ! command -v zsh &> /dev/null; then
-    echo "Zsh is not installed. Installing Zsh..."
-    sudo apt-get update
-    sudo apt-get install -y zsh
-fi
+# if ! command -v zsh &> /dev/null; then
+#     echo "Zsh is not installed. Installing Zsh..."
+#     sudo apt-get update
+#     sudo apt-get install -y zsh
+# fi
 
 # Check if Zsh is now installed
 if command -v zsh &> /dev/null; then
@@ -24,7 +24,7 @@ if command -v zsh &> /dev/null; then
          echo "Zsh is now the default shell."
     fi
 else
-    echo "Zsh installation failed."
+    echo "Zsh is not installed"
 fi
 
 if command -v brew &> /dev/null; then
@@ -73,5 +73,3 @@ wget https://github.com/epk/SF-Mono-Nerd-Font/raw/master/SFMono%20Regular%20Ital
 mv SFMono\ Regular\ Italic\ Nerd\ Font\ Complete.otf ~/.local/share/fonts
 wget https://github.com/epk/SF-Mono-Nerd-Font/raw/master/SFMono%20Bold%20Italic%20Nerd%20Font%20Complete.otf
 mv SFMono\ Bold\ Italic\ Nerd\ Font\ Complete.otf ~/.local/share/fonts
-
-
