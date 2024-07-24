@@ -1,32 +1,32 @@
 local M = {
-  "hrsh7th/nvim-cmp",
-  event = { "InsertEnter", "CmdlineEnter" },
+  'hrsh7th/nvim-cmp',
+  event = { 'InsertEnter', 'CmdlineEnter' },
   dependencies = {
-    "L3MON4D3/LuaSnip",
-    "saadparwaiz1/cmp_luasnip",
-    "hrsh7th/cmp-buffer",
-    "hrsh7th/cmp-nvim-lsp",
-    "hrsh7th/cmp-path",
-    "hrsh7th/cmp-cmdline",
-    "onsails/lspkind-nvim",
-    "zbirenbaum/copilot-cmp",
+    'L3MON4D3/LuaSnip',
+    'saadparwaiz1/cmp_luasnip',
+    'hrsh7th/cmp-buffer',
+    'hrsh7th/cmp-nvim-lsp',
+    'hrsh7th/cmp-path',
+    'hrsh7th/cmp-cmdline',
+    'onsails/lspkind-nvim',
+    'zbirenbaum/copilot-cmp',
   },
 }
 
 M.config = function()
-  local cmp = require("cmp")
-  local lspkind = require("lspkind")
-  local luasnip = require("luasnip")
+  local cmp = require('cmp')
+  local lspkind = require('lspkind')
+  local luasnip = require('luasnip')
 
   lspkind.init({
     symbol_map = {
-      Copilot = "",
+      Copilot = '',
     },
   })
 
-  vim.g.completion_matching_strategy_list = { "exact", "substring", "fuzzy" }
+  vim.g.completion_matching_strategy_list = { 'exact', 'substring', 'fuzzy' }
 
-  local next_completion = function(fallback)
+  local next_completion = function(_)
     if cmp.visible() then
       cmp.select_next_item()
     else
@@ -34,7 +34,7 @@ M.config = function()
     end
   end
 
-  local prev_completion = function(fallback)
+  local prev_completion = function(_)
     if cmp.visible() then
       cmp.select_prev_item()
     else
@@ -44,14 +44,14 @@ M.config = function()
 
   local function border(hl_name)
     return {
-      { "╭", hl_name },
-      { "─", hl_name },
-      { "╮", hl_name },
-      { "│", hl_name },
-      { "╯", hl_name },
-      { "─", hl_name },
-      { "╰", hl_name },
-      { "│", hl_name },
+      { '╭', hl_name },
+      { '─', hl_name },
+      { '╮', hl_name },
+      { '│', hl_name },
+      { '╯', hl_name },
+      { '─', hl_name },
+      { '╰', hl_name },
+      { '│', hl_name },
     }
   end
 
@@ -64,15 +64,15 @@ M.config = function()
     },
     window = {
       completion = {
-        border = border("CmpBorder"),
-        winhighlight = "Normal:CmpPmenu,CursorLine:PmenuSel,Search:None",
+        border = border('CmpBorder'),
+        winhighlight = 'Normal:CmpPmenu,CursorLine:PmenuSel,Search:None',
       },
       documentation = {
-        border = border("CmpDocBorder"),
+        border = border('CmpDocBorder'),
       },
     },
     mapping = cmp.mapping.preset.insert({
-      ["<C-y>"] = cmp.mapping({
+      ['<C-y>'] = cmp.mapping({
         i = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }),
         c = function(fallback)
           if cmp.visible() then
@@ -82,32 +82,32 @@ M.config = function()
           end
         end,
       }),
-      ["<CR>"] = cmp.mapping.confirm({ select = false, behavior = cmp.ConfirmBehavior.Replace }),
-      ["<Tab>"] = next_completion,
-      ["<S-Tab>"] = prev_completion,
-      ["<C-c>"] = cmp.mapping.abort(),
-      ["<C-e>"] = function()
+      ['<CR>'] = cmp.mapping.confirm({ select = false, behavior = cmp.ConfirmBehavior.Replace }),
+      ['<Tab>'] = next_completion,
+      ['<S-Tab>'] = prev_completion,
+      ['<C-c>'] = cmp.mapping.abort(),
+      ['<C-e>'] = function()
         cmp.close()
-        require("copilot.suggestion").accept()
+        require('copilot.suggestion').accept()
       end,
     }),
     sources = {
-      { name = "nvim_lsp", group_index = 2 },
+      { name = 'nvim_lsp', group_index = 2 },
       {
-        name = "luasnip",
+        name = 'luasnip',
         keyword_length = 2,
         priority = 50,
         max_item_count = 2,
         group_index = 2,
       },
-      { name = "buffer",   group_index = 3, keyword_length = 3 },
-      { name = "path" }
+      { name = 'buffer', group_index = 3, keyword_length = 3 },
+      { name = 'path' },
     },
     formatting = {
       format = function(_, vim_item)
         local icons = lspkind.symbol_map
 
-        vim_item.kind = string.format("%s %s", icons[vim_item.kind], vim_item.kind)
+        vim_item.kind = string.format('%s %s', icons[vim_item.kind], vim_item.kind)
         return vim_item
       end,
     },
@@ -116,20 +116,20 @@ M.config = function()
     },
   })
 
-  cmp.setup.cmdline("/", {
+  cmp.setup.cmdline('/', {
     mapping = cmp.mapping.preset.cmdline(),
     sources = {
-      { name = "buffer" },
-      { name = "path" },
+      { name = 'buffer' },
+      { name = 'path' },
     },
   })
 
-  cmp.setup.cmdline(":", {
+  cmp.setup.cmdline(':', {
     mapping = cmp.mapping.preset.cmdline(),
     sources = cmp.config.sources({
-      { name = "path" },
+      { name = 'path' },
     }, {
-      { name = "cmdline" },
+      { name = 'cmdline' },
     }),
   })
 end

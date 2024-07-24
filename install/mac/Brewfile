@@ -1,5 +1,7 @@
 # Tap
 tap 'arl/arl'
+tap 'wix/brew'
+tap 'facebook/fb'
 
 brew 'curl'
 brew 'wget'
@@ -43,7 +45,15 @@ brew 'zoxide'
 brew 'luarocks'
 brew 'neovim'
 brew 'fnm'
-brew 'tpm'
+brew 'python'
+brew 'pyenv'
+
+# Appium essentials
+brew 'bundletool'
+brew 'gstreamer'
+brew 'applesimutils'
+brew 'idb-companion'
+brew 'lyft/formulae/set-simulator-location'
 
 # zsh plugins
 brew 'zsh-syntax-highlighting'

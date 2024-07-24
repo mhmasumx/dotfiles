@@ -1,16 +1,16 @@
 return {
-  "nvim-treesitter/nvim-treesitter",
-  build = ":TSUpdate",
-  event = { "BufReadPre", "BufNewFile" },
+  'nvim-treesitter/nvim-treesitter',
+  build = ':TSUpdate',
+  event = { 'BufReadPre', 'BufNewFile' },
   dependencies = {
-    "nvim-treesitter/nvim-treesitter-textobjects",
+    'nvim-treesitter/nvim-treesitter-textobjects',
     -- "JoosepAlviste/nvim-ts-context-commentstring",
-    "windwp/nvim-ts-autotag",
+    'windwp/nvim-ts-autotag',
   },
   config = function()
     local parsers = require('mahmud.utils.ts_parser').parser
 
-    local treesitter = require("nvim-treesitter.configs")
+    local treesitter = require('nvim-treesitter.configs')
 
     -- configure treesitter
     treesitter.setup({ -- enable syntax highlighting
@@ -23,10 +23,10 @@ return {
       incremental_selection = {
         enable = true,
         keymaps = {
-          init_selection = "<C-space>",
-          node_incremental = "<C-space>",
+          init_selection = '<C-space>',
+          node_incremental = '<C-space>',
           scope_incremental = false,
-          node_decremental = "<bs>",
+          node_decremental = '<bs>',
         },
       },
     })

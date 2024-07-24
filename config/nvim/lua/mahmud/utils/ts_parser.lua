@@ -1,7 +1,7 @@
 local M = {}
 M.parser = {
   'c',
-  "cpp",
+  'cpp',
   'lua',
   'vim',
   'vimdoc',

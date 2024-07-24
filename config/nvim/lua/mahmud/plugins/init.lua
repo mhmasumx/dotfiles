@@ -4,3 +4,4 @@ return {
   'nvim-tree/nvim-web-devicons',
   'farmergreg/vim-lastplace',
 }
+

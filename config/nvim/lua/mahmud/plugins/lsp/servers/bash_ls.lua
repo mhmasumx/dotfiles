@@ -1,6 +1,6 @@
 local M = {}
 
-local lspconfig = require("lspconfig")
+local lspconfig = require('lspconfig')
 
 M.setup = function(opts)
   lspconfig.bashls.setup({

@@ -1,7 +1,7 @@
 local M = {}
 
 M.setup = function(opts)
-  local lspconfig = require("lspconfig")
+  local lspconfig = require('lspconfig')
   lspconfig.lua_ls.setup({
     handlers = opts.custom_handlers,
     on_attach = opts.on_attach,
@@ -12,7 +12,7 @@ M.setup = function(opts)
         --   checkThirdParty = false,
         -- },
         completion = {
-          callSnippet = "Replace",
+          callSnippet = 'Replace',
         },
       },
     },
