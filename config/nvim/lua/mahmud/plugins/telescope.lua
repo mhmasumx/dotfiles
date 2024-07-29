@@ -58,6 +58,11 @@ M.config = function()
         '--fixed-strings',
         '--trim',
       },
+      file_ignore_patterns = {
+        '^.git/',
+        '^node_modules/',
+        '^venv/',
+      },
       prompt_prefix = '   ',
       selection_caret = ' ',
       entry_prefix = '  ',

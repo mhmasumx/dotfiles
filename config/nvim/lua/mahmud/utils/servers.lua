@@ -13,6 +13,7 @@ local M = {
     'stylua',
     'tailwindcss-language-server',
     'yaml-language-server',
+    'jdtls',
   },
 }
 
