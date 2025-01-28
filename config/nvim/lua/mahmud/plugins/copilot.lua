@@ -23,7 +23,7 @@ function plugin.config()
       enabled = true,
       auto_trigger = true,
       keymap = {
-        accept = '<C-j>',
+        accept = '<C-l>',
         accept_word = '<S-Down>',
         accept_line = '<S-Right>',
         next = '<C-space>',

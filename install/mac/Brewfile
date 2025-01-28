@@ -45,6 +45,7 @@ brew 'zoxide'
 brew 'luarocks'
 brew 'neovim'
 brew 'fnm'
+brew 'pnpm'
 brew 'python'
 brew 'pyenv'
 

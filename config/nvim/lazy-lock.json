@@ -42,7 +42,7 @@
   "nvim-ts-autotag": { "branch": "main", "commit": "dc5e1687ab76ee02e0f11c5ce137f530b36e98b3" },
   "nvim-web-devicons": { "branch": "master", "commit": "5be6c4e685618b99c3210a69375b38a1202369b4" },
   "plenary.nvim": { "branch": "master", "commit": "a3e3bc82a3f95c5ed0d7201546d5d2c19b20d683" },
-  "schemastore.nvim": { "branch": "main", "commit": "6eb8cee613518fb065d23a81d01eeb42365d59c1" },
+  "schemastore.nvim": { "branch": "main", "commit": "bb73383589c0aab431a100a014eed6cb0e1b3832" },
   "sqlite.lua": { "branch": "master", "commit": "d0ffd703b56d090d213b497ed4eb840495f14a11" },
   "statuscol.nvim": { "branch": "main", "commit": "d6f7f5437c5404d958b88bb73e0721b1c0e09223" },
   "telescope-all-recent.nvim": { "branch": "main", "commit": "267e9e5fd13a6e9a4cc6ffe00452d446d040401d" },

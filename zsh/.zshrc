@@ -1,6 +1,10 @@
 # Aliases
 [ -f ~/.aliases ] && source ~/.aliases
 
+export ANDROID_HOME=/Users/mahmud/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+
+
 # plugins
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh

@@ -2,7 +2,7 @@
 add_newline = false
 
 # format = "$directory$git_branch$git_status${custom.git_host}$fill${custom.git_email}$nodejs$python$java\n$character"
-format = "$directory$fill${custom.git_email}$nodejs$python$java\n$character"
+format = "$directory$shell$fill${custom.git_email}$nodejs$python$java\n$character"
 right_format = "$status$cmd_duration"
 
 [fill]
@@ -15,6 +15,15 @@ disabled = false
 style = "red"
 format = " [$symbol $common_meaning$signal_name$maybe_int]($style)"
 map_symbol = true
+
+[shell]
+fish_indicator = '󰈺 '
+zsh_indicator = '(zsh)'
+powershell_indicator = '_'
+unknown_indicator = 'mystery shell'
+style = 'cyan bold'
+format = "[($zsh_indicator)]($style)"
+disabled = false
 
 [directory]
 style = "bright-green"
@@ -39,7 +48,7 @@ format = " \ue621 [$symbol$version]($style)"
 
 [python]
 style = "#66cc33"
-format = " \ue621 [$symbol$version]($style)"
+format = " \ue621 [$symbol$version[$virtualenv](bold italic #75AADB)]($style)"
 
 [java]
 style = "#ce412b"

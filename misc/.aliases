@@ -30,3 +30,6 @@ alias .....='cd ../../../..'
 
 alias zshreload="source ~/.zshrc"
 alias tn="tmux new -s $(pwd | sed 's/.*\///g')"
+
+alias pe='source venv/bin/activate'
+alias pv='python3.12 -m venv venv'
